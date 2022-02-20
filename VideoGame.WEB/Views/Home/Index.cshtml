@@ -1,0 +1,29 @@
+﻿@model VideoGame.WEB.Models.GameViewModel
+
+@{
+    ViewData["Title"] = "Список игр";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <p><a asp-controller="Home" asp-action="MakeGame">Добавить игру</a></p>
+    <table class="table">
+        <thead>
+         <tr><th>Название игры</th><th>Студия</th><th>Жанр</th><th>Изменить</th><th>Удалить</th></tr>
+        </thead>
+         <tbody >
+
+            @foreach (var game in Model.Games)
+            {
+                <tr>
+                    <td>@game.Name</td>
+                    <td>@game.Studio</td>
+                    <td>@game.Genre</td>
+                    <td><a asp-controller="Home" asp-action="MakeGame" asp-route-Id="@game.Id"><img src="~/css/2.gif" alt="Изменить" width="50" height="50" title="Удалить"></a></td>
+                    <td><a asp-controller="Home" asp-action="DeleteGame" asp-route-Id="@game.Id"><img src="~/css/qq.png" alt="Удалить" width="50" height="50" title="Удалить"></a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

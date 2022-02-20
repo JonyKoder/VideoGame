@@ -1,0 +1,18 @@
+﻿@model VideoGame.WEB.Models.EditGameViewModel
+<form method="post" asp-controller="Home" asp-action="CreateGame">
+    <input type="number" name="id" value="@Model.EditGame.Id" hidden/>
+    <label>Название:</label>
+    <input type="text" name="name" value="@Model.EditGame.Name" />
+    <label>Студия:</label>
+    <input type="text" name="studio" value="@Model.EditGame.Studio" />
+    <label>Жанр:</label>
+    <input type="text" name="genre" value="@Model.EditGame.Genre" list="genreList" />
+    <datalist id="genreList">
+        <option>Action</option>
+        <option>Horror</option>
+        <option>TheRoyalBattle</option>
+        <option>Simulation</option>
+        <option>Strategies</option>
+    </datalist>
+    <input type="submit" value="Отправить" />
+</form>
